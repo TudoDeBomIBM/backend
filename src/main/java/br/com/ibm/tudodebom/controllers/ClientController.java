@@ -2,7 +2,6 @@ package br.com.ibm.tudodebom.controllers;
 
 import br.com.ibm.tudodebom.dtos.requests.RequestClienteDTO;
 import br.com.ibm.tudodebom.dtos.responses.ResponseClienteDTO;
-import br.com.ibm.tudodebom.entities.ClienteEntity;
 import br.com.ibm.tudodebom.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +27,12 @@ public class ClientController {
     public ResponseEntity<List<ResponseClienteDTO>> get(ResponseClienteDTO responseClienteDTO) {
         List<ResponseClienteDTO> responsesClienteDTO = clientService.getAll();
         return ResponseEntity.ok(responsesClienteDTO);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseClienteDTO> getClientById(@PathVariable Long id) {
+        ResponseClienteDTO responseClienteDTO = clientService.getById(id);
+        return ResponseEntity.ok(responseClienteDTO);
     }
 
     @PutMapping("/{id}")
