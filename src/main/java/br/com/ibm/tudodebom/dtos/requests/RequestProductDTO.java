@@ -25,4 +25,5 @@ public class RequestProductDTO {
 	@NotBlank
     @Size(max=1, message="O atributo flag_generico deve conter no máximo 1 caracter")
 	private String flag_generico;
+	
 }

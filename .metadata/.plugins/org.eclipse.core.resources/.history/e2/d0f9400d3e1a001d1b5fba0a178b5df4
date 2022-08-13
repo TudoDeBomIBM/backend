@@ -1,0 +1,5 @@
+package br.com.tudodebom.model;
+
+public class Usuarios {
+
+}
