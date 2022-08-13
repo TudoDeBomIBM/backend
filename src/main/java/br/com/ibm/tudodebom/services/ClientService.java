@@ -3,6 +3,7 @@ package br.com.ibm.tudodebom.services;
 import br.com.ibm.tudodebom.dtos.requests.RequestClienteDTO;
 import br.com.ibm.tudodebom.dtos.responses.ResponseClienteDTO;
 import br.com.ibm.tudodebom.entities.ClienteEntity;
+import br.com.ibm.tudodebom.exceptions.ClientNotFoundException;
 import br.com.ibm.tudodebom.repositorys.ClientRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,15 +40,21 @@ public class ClientService {
         return dtos;
     }
 
+    public ResponseClienteDTO getById(Long id){
+        ClienteEntity clienteEntity = clientRepository.findById(id).orElseThrow(ClientNotFoundException::new);
+        return modelMapper.map(clienteEntity, ResponseClienteDTO.class);
+    }
+
+
     public ResponseClienteDTO update(RequestClienteDTO requestClienteDTO, Long id) {
-        ClienteEntity clienteEntity = clientRepository.findById(id).orElse(null);
+        ClienteEntity clienteEntity = clientRepository.findById(id).orElseThrow(ClientNotFoundException::new);
         ResponseClienteDTO map = modelMapper.map(requestClienteDTO, ResponseClienteDTO.class);
         clientRepository.save(clienteEntity);
         return map;
     }
 
     public void delete(@PathVariable Long id) {
-        clientRepository.findById(id);
+        clientRepository.findById(id).orElseThrow(ClientNotFoundException::new);
         clientRepository.deleteById(id);
     }
 
