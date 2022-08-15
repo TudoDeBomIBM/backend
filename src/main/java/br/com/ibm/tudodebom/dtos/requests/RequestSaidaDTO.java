@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class RequestPedidoDTO {
+public class RequestSaidaDTO {
 	
 	    @NotBlank
 	    @Size(max=3, message="Insira no máximo 3 casas numéricas")

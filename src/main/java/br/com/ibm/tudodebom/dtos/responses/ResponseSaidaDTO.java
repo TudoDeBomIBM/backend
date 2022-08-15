@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
-public class ResponsePedidoDTO {
+public class ResponseSaidaDTO {
 	
 	    private Long id;
 		private int quantidade;
