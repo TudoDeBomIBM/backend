@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data 
 @AllArgsConstructor
 @NoArgsConstructor
-public class PedidoEntity {
+public class SaidaEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
