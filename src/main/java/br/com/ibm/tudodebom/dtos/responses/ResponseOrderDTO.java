@@ -1,15 +1,18 @@
 package br.com.ibm.tudodebom.dtos.responses;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+
+import br.com.ibm.tudodebom.entities.ClientEntity;
+import br.com.ibm.tudodebom.entities.OrderDetailsEntity;
+import lombok.Data;
 
 @Data
 public class ResponseOrderDTO {
-    private Long id;
-    private Date dataSaida;
-    private BigDecimal precoUnitario;
-    private Integer quantidade;
-    private BigDecimal valorFinal;
+	private Long id;
+	private ClientEntity client;
+	private Date createdAt;
+	private BigDecimal orderPrice;
+	private List<OrderDetailsEntity> orderDetails;
 }

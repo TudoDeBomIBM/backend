@@ -11,16 +11,14 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="Product")
 public class ProductEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nome;
-	private Date dataDeCriacao;
-	private Boolean isMedicine;
-	private Boolean isGeneric;
-	@OneToOne(cascade = CascadeType.ALL)
-	private InputEntity entrada;
-	@OneToOne(cascade = CascadeType.ALL)
-	private OrderEntity pedido;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private Date createdAt;
+    private Boolean isMedicine;
+    private Boolean isGeneric;
+    private int quantity;
 }
