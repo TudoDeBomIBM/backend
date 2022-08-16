@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,5 +57,8 @@ public class ClientService {
         clientRepository.findById(id).orElseThrow(ClientNotFoundException::new);
         clientRepository.deleteById(id);
     }
+
+
+
 
 }
