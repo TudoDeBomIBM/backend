@@ -9,16 +9,14 @@ import java.util.Date;
 
 @Data
 public class RequestProductDTO {
-	@NotEmpty
-	private String nome;
-	@DateTimeFormat
-	private Date dataDeCriacao;
-	@NotNull
-	private Boolean isMedicine;
-	@NotNull
-	private Boolean isGeneric;
-
-	private RequestInputDTO entrada;
-	private RequestOrderDTO pedido;
+    @NotEmpty
+    private String name;
+    @DateTimeFormat
+    private Date createdAt;
+    @NotNull
+    private Boolean isMedicine;
+    @NotNull
+    private Boolean isGeneric;
+    private int quantity;
 
 }
