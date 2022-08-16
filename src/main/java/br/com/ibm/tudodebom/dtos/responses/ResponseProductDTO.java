@@ -2,14 +2,15 @@ package br.com.ibm.tudodebom.dtos.responses;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class ResponseProductDTO {
-	
 	private Long id;
 	private String nome;
-	private String descricao;
-	private String preco_unit;
-	private int estoque;
-	private String flag_remedio;
-	private String flag_generico;
+	private Date dataDeCriacao;
+	private Boolean isMedicine;
+	private Boolean isGeneric;
+	private ResponseInputDTO entrada;
+	private ResponseOrderDTO pedido;
 }
