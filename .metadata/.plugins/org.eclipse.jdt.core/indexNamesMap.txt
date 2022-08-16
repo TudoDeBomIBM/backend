@@ -1,1 +1,6 @@
 INDEX VERSION 1.131
+<<<<<<< HEAD
+=======
+file:/C:/temp/workspace_desafio_one_ibm/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+meta_index
+>>>>>>> entity

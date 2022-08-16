@@ -1924,6 +1924,7 @@ IEclipsePreferences#org-eclipse-mylyn-wikitext-ui {
 }
 IEclipsePreferences#org-eclipse-pde-ui {
 	preferences:
+<<<<<<< HEAD
 		'editor.color.header_assignment=216,216,216'
 		'editor.color.externalized_string=255,198,0'
 		'editor.color.instr=255,255,255'
@@ -1935,6 +1936,26 @@ IEclipsePreferences#org-eclipse-pde-ui {
 		'editor.color.header_attributes=121,171,255'
 		'editor.color.xml_comment=199,221,12'
 		'editor.color.header_value=255,198,0'
+=======
+		'editor.color.default=216,216,216'
+		'editor.color.externalized_string=255,198,0'
+		'editor.color.externalized_string_italic=true'
+		'editor.color.header_assignment=216,216,216'
+		'editor.color.header_assignment_bold=true'
+		'editor.color.header_attributes=121,171,255'
+		'editor.color.header_key=141,203,226'
+		'editor.color.header_key_bold=true'
+		'editor.color.header_osgi=141,203,226'
+		'editor.color.header_value=255,198,0'
+		'editor.color.header_value_italic=true'
+		'editor.color.instr=255,255,255'
+		'editor.color.instr_bold=true'
+		'editor.color.string=255,198,0'
+		'editor.color.string_italic=true'
+		'editor.color.tag=121,171,255'
+		'editor.color.tag_bold=true'
+		'editor.color.xml_comment=199,221,12'
+>>>>>>> entity
 }
 IEclipsePreferences#org-eclipse-php-ui {
 	preferences:
@@ -2174,6 +2195,15 @@ IEclipsePreferences#org-eclipse-ui-workbench {
 		'org.eclipse.jdt.ui.typeVariableDeclarationHighlighting=247,173,123'
 		'org.eclipse.jface.REVISION_NEWEST_COLOR=185,124,52'
 		'org.eclipse.jface.REVISION_OLDEST_COLOR=25,29,31'
+<<<<<<< HEAD
+=======
+		'org.eclipse.pde.genericeditor.extension.editor.color.attribute=196,138,114'
+		'org.eclipse.pde.genericeditor.extension.editor.color.comment=93,134,75'
+		'org.eclipse.pde.genericeditor.extension.editor.color.header=115,130,140'
+		'org.eclipse.pde.genericeditor.extension.editor.color.quote=118,200,244'
+		'org.eclipse.pde.genericeditor.extension.editor.color.tag=86,156,214'
+		'org.eclipse.pde.genericeditor.extension.editor.color.text=207,212,216'
+>>>>>>> entity
 		'org.eclipse.search.ui.match.highlight=73,83,90'
 		'org.eclipse.ui.editors.backgroundColor=0,0,0'
 		'org.eclipse.ui.editors.currentLineColor=7,8,8'
