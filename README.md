@@ -2,7 +2,7 @@
 # Tudo de bom
 
 API para a loja Tudo de Bom gerenciar suas transações.
-O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dados para contato e controle de estoque.
+O sistema deve permitir cadastro de novos clientes, incluindo dados pessoais, dados para contato e controle de estoque.
 
 
 
@@ -99,61 +99,29 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
+#### Cadastra uma order
 
-#### Retorna todas as entradas
+```http
+  POST /order
+```
+
+
+#### Retorna todas as orders
 
 ```http
   GET /products/inputs
 ```
 
 
-#### Retorna uma entrada
+#### Retorna uma order
 
 ```http
-  GET /products/${idProduct}/inputs
+  GET /orders/${id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                                    |
 | :---------- | :--------- |:-------------------------------------------------------------|
-| `idProduct`      | `Long` | **Obrigatório**. O ID do produto que você quer ver a entrada |
+| `id`      | `Long` | **Obrigatório**. O ID da order que você quer visualizar |
 
-
-#### Atualiza uma entrada
-
-```http
-  PUT /products/${idProduct}/inputs
-```
-
-| Parâmetro   | Tipo       | Descrição                                                          |
-| :---------- | :--------- |:-------------------------------------------------------------------|
-| `id`      | `Long` | **Obrigatório**. O ID do produto que você quer atualizar a entrada |
-
-
-#### Retorna todas as saídas
-
-```http
-  GET /products/outputs
-```
-
-#### Retorna uma saída
-
-```http
-  GET /products/{idProduct}/outputs
-```
-
-| Parâmetro   | Tipo       | Descrição                                                    |
-| :---------- | :--------- |:-------------------------------------------------------------|
-| `id`      | `Long` | **Obrigatório**. O ID do produto que você quer obter a saída |
-
-
-#### Atualiza uma saída
-
-```http
-  PUT /inputs/${id}
-```
-
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
 
