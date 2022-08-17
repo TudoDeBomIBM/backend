@@ -109,7 +109,7 @@ O sistema deve permitir cadastro de novos clientes, incluindo dados pessoais, da
 #### Retorna todas as orders
 
 ```http
-  GET /products/inputs
+  GET /order
 ```
 
 
