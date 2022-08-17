@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -15,5 +16,6 @@ public class ResponseOrderDTO {
      @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
      private Date createdAt;
      private BigDecimal orderPrice;
+     @JsonManagedReference
      private List<ResponseOrderDetails> orderDetails;
 }
