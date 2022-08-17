@@ -2,7 +2,6 @@ package br.com.ibm.tudodebom.dtos.requests;
 
 import java.math.BigDecimal;
 
-import br.com.ibm.tudodebom.entities.OrderEntity;
 import lombok.Data;
 
 @Data
