@@ -4,15 +4,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import br.com.ibm.tudodebom.entities.ClientEntity;
-import br.com.ibm.tudodebom.entities.OrderDetailsEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
 public class RequestOrderDTO {
          private Long id;
-        private ClientEntity client;
+        private RequestClientDTO client;
+        @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
         private Date createdAt;
         private BigDecimal orderPrice;
-        private List<OrderDetailsEntity> orderDetails;
+        private List<RequestOrderDetailsDTO> orderDetails;
 }

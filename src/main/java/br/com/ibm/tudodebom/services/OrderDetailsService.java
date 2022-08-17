@@ -1,4 +1,4 @@
-package br.com.ibm.tudodebom.services;
+/*package br.com.ibm.tudodebom.services;
 
 import java.math.BigDecimal;
 
@@ -11,6 +11,7 @@ import br.com.ibm.tudodebom.entities.ProductEntity;
 import br.com.ibm.tudodebom.repositorys.ProductRepository;
 
 public class OrderDetailsService {
+	@Autowired
 	private ModelMapper modelMapper;
 
 	@Autowired
@@ -33,3 +34,4 @@ public class OrderDetailsService {
 		return requestOrderDetailsDTO;
 }
 }
+*/

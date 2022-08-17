@@ -1,7 +1,5 @@
 package br.com.ibm.tudodebom.controllers;
 
-import java.net.URI;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,37 +14,28 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.ibm.tudodebom.dtos.requests.RequestOrderDTO;
-import br.com.ibm.tudodebom.dtos.requests.RequestOrderDetailsDTO;
 import br.com.ibm.tudodebom.dtos.responses.ResponseOrderDTO;
-import br.com.ibm.tudodebom.entities.OrderDetailsEntity;
-import br.com.ibm.tudodebom.repositorys.OrderDetailsRepository;
-import br.com.ibm.tudodebom.services.OrderDetailsService;
 import br.com.ibm.tudodebom.services.OrderService;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/orders")
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
-    
-    @Autowired
-    private OrderDetailsService orderDetailsService;
 
-    @Autowired
-    private OrderDetailsRepository orderDetailsRepository;
-
-    @GetMapping("/{idProduct}/orders")
-    public ResponseEntity<ResponseOrderDTO> getSaidaById(@PathVariable Long idProduct) {
-        ResponseOrderDTO responseOrderDTO = orderService.getById(idProduct);
+    @GetMapping("/{idOrder}")
+    public ResponseEntity<ResponseOrderDTO> getSaidaById(@PathVariable Long idOrder) {
+        ResponseOrderDTO responseOrderDTO = orderService.getById(idOrder);
         return ResponseEntity.ok(responseOrderDTO);
     }
     
     @PostMapping
-	public ResponseEntity<?> post(@Valid @RequestBody OrderDetailsEntity orderDetailsEntity, RequestOrderDetailsDTO requestOrderDetailsDTO, UriComponentsBuilder uriComponentsBuilder) {
-		var responseOrderDetailsDTO = orderDetailsRepository.save(orderDetailsEntity);
-		URI uri = uriComponentsBuilder.path("/{idProduct}/orders").buildAndExpand(responseOrderDetailsDTO.getId()).toUri();
-		return ResponseEntity.created(uri).body(responseOrderDetailsDTO);
+	public ResponseEntity<?> post(@Valid @RequestBody RequestOrderDTO requestOrderDTO, UriComponentsBuilder uriComponentsBuilder) {
+		var responseOrderDTO = orderService.save(requestOrderDTO);
+		//URI uri = uriComponentsBuilder.path("/{idProduct}/orders").buildAndExpand(responseOrderDTO.getId()).toUri();
+		//return ResponseEntity.created(uri).body(responseOrderDTO);
+		return ResponseEntity.ok(responseOrderDTO);
 	}
 
     @PutMapping("/{idProduct}/orders")

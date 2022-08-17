@@ -9,6 +9,7 @@ import java.util.Date;
 
 @Data
 public class RequestProductDTO {
+	private Long id;
     @NotEmpty
     private String name;
     @DateTimeFormat
