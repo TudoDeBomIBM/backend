@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 public class RequestClientDTO {
+	private Long id;
     @NotBlank
     private String nome;
     @NotBlank

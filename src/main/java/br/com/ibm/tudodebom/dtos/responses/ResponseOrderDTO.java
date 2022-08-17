@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class ResponseOrderDTO {
 	private Long id;
-	private ClientEntity client;
+	private ResponseClientDTO client;
 	private Date createdAt;
 	private BigDecimal orderPrice;
-	private List<OrderDetailsEntity> orderDetails;
+	private List<ResponseOrderDetails> orderDetails;
 }
