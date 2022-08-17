@@ -1,6 +1,7 @@
 package br.com.ibm.tudodebom.services;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class OrderService {
 	@Autowired
 	private ProductRepository productRepository;
 	@Autowired
-	private OrderDetailsRepository orderDetailsRepository; 
+	private OrderDetailsRepository orderDetailsRepository;
 
 	@Autowired
 	private ModelMapper modelMapper;
@@ -49,40 +50,47 @@ public class OrderService {
 	public ResponseOrderDTO save(RequestOrderDTO requestOrderDTO) {
 		BigDecimal total = new BigDecimal(0.0);
 		List<RequestOrderDetailsDTO> orderDetails = requestOrderDTO.getOrderDetails();
-		for(int i = 0; i< orderDetails.size(); i++) {
+		for (int i = 0; i < orderDetails.size(); i++) {
 			BigDecimal porcentagem = new BigDecimal("0.8");
 			BigDecimal quantidade = new BigDecimal(orderDetails.get(i).getQuantity());
-			ProductEntity product = productRepository.findById(orderDetails.get(i).getProduct().getId()).orElseThrow(ProductNotFoundException::new);
+			ProductEntity product = productRepository.findById(orderDetails.get(i).getProduct().getId())
+					.orElseThrow(ProductNotFoundException::new);
 			if (product.getIsMedicine().equals(true) && product.getIsGeneric().equals(true)) {
-				BigDecimal result = porcentagem.multiply(orderDetails.get(i).getUnityPrice())
-						.multiply(quantidade);
+				BigDecimal result = porcentagem.multiply(orderDetails.get(i).getUnityPrice()).multiply(quantidade);
 				orderDetails.get(i).setTotalPrice(result);
 				total = total.add(result);
-			}
-			else {
-				total = total.add(orderDetails.get(i).getUnityPrice().multiply(quantidade));
+			} else {
+				BigDecimal result2 = orderDetails.get(i).getUnityPrice().multiply(quantidade);
+				orderDetails.get(i).setTotalPrice(result2);
+				total = total.add(result2);
 			}
 		}
 		requestOrderDTO.setOrderPrice(total);
 		OrderEntity mapEntity = modelMapper.map(requestOrderDTO, OrderEntity.class);
 		mapEntity = orderRepository.save(mapEntity);
 		ResponseOrderDTO response = modelMapper.map(mapEntity, ResponseOrderDTO.class);
-		List<OrderDetailsEntity> mapDetailsEntity = requestOrderDTO.getOrderDetails()
-					.stream()
-					.map(orderDetail -> modelMapper.map(orderDetail, OrderDetailsEntity.class))
-					.collect(Collectors.toList());
+		List<OrderDetailsEntity> mapDetailsEntity = requestOrderDTO.getOrderDetails().stream()
+				.map(orderDetail -> modelMapper.map(orderDetail, OrderDetailsEntity.class))
+				.collect(Collectors.toList());
 		OrderEntity order = mapEntity;
 		mapDetailsEntity.forEach(f -> f.setOrder(order));
 		mapDetailsEntity = orderDetailsRepository.saveAll(mapDetailsEntity);
-		List<ResponseOrderDetails> mapDetailsDto = mapDetailsEntity
-				.stream()
+		List<ResponseOrderDetails> mapDetailsDto = mapDetailsEntity.stream()
 				.map(orderDetail -> modelMapper.map(orderDetail, ResponseOrderDetails.class))
 				.collect(Collectors.toList());
 		response.setOrderDetails(mapDetailsDto);
 		return response;
 	}
 
+	public List<ResponseOrderDTO> getAll() {
+		List<OrderEntity> allOrders = orderRepository.findAll();
+		List<ResponseOrderDTO> dtos = Arrays.asList();
+		if (allOrders.size() > 0) {
+			dtos = allOrders.stream().map(orderEntity -> modelMapper.map(orderEntity, ResponseOrderDTO.class))
+					.collect(Collectors.toList());
+
+		}
+		return dtos;
+	}
+
 }
-
-
-
