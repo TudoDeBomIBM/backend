@@ -14,10 +14,6 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
   GET /clients
 ```
 
-## Demonstração
-<p> <a href="https://www.ibm.com/br-pt"><img src="src/assets/16-08-2022-04-21.gif"></a> </p>
-
-
 #### Retorna um cliente
 
 ```http
@@ -29,19 +25,11 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
 
-## Demonstração
-
-
 #### Cadastra um cliente
 
 ```http
   POST /clients
 ```
-
-## Demonstração
-
-<p> <a href="https://www.ibm.com/br-pt"><img src="src/assets/16-08-2022-03-36.gif"></a> </p>
-
 
 #### Atualiza um cliente
 
@@ -55,8 +43,6 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 
 
 
-## Demonstração
-
 #### Deleta um cliente
 
 ```http
@@ -68,15 +54,11 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
 
-## Demonstração
-
 #### Retorna todos os produtos
 
 ```http
   GET /products
 ```
-
-## Demonstração
 
 #### Retorna um produto
 
@@ -88,16 +70,12 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
-## Demonstração
 
 #### Cadastra um produto
 
 ```http
   POST /products
 ```
-
-## Demonstração
-
 
 #### Atualiza um produto
 
@@ -109,7 +87,6 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
-## Demonstração
 
 
 #### Deleta um produto
@@ -122,14 +99,12 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
-## Demonstração
 
 #### Retorna todas as entradas
 
 ```http
   GET /products/inputs
 ```
-## Demonstração
 
 
 #### Retorna uma entrada
@@ -142,7 +117,6 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- |:-------------------------------------------------------------|
 | `idProduct`      | `Long` | **Obrigatório**. O ID do produto que você quer ver a entrada |
 
-## Demonstração
 
 #### Atualiza uma entrada
 
@@ -154,16 +128,12 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- |:-------------------------------------------------------------------|
 | `id`      | `Long` | **Obrigatório**. O ID do produto que você quer atualizar a entrada |
 
-## Demonstração
-
 
 #### Retorna todas as saídas
 
 ```http
   GET /products/outputs
 ```
-## Demonstração
-
 
 #### Retorna uma saída
 
@@ -175,7 +145,6 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- |:-------------------------------------------------------------|
 | `id`      | `Long` | **Obrigatório**. O ID do produto que você quer obter a saída |
 
-## Demonstração
 
 #### Atualiza uma saída
 
@@ -187,5 +156,4 @@ O sistema deve permite cadastro de novos clientes, incluindo dados pessoais, dad
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Long` | **Obrigatório**. O ID do cliente que você quer |
 
-## Demonstração
 
